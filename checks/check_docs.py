@@ -542,7 +542,7 @@ def check_numbers():
     if OLD_RESULTS.exists():
         try:
             saved = json.loads(OLD_RESULTS.read_text())
-                        stale = any(abs(float(saved.get(m, truth["overall"][m])) - truth["overall"][m]) > TOLERANCE for m in METRICS)
+            stale = any(abs(float(saved.get(m, truth["overall"][m])) - truth["overall"][m]) > TOLERANCE for m in METRICS)
         except (ValueError, TypeError):
             stale = True
     if stale:
